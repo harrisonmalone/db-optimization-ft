@@ -1,0 +1,17 @@
+<h1>Homes</h1>
+<% @homes.each do |home| %>
+  <div>
+    <h3>Name: <%= home.name %></h3>
+    <h3>Price: <%= number_to_currency(home.price_per_day) %></h3>
+    <h3>Guests: <%= home.guests %></h3>
+    <%= image_tag home.image, height: 200 %>
+    <div class="address">
+      <h4>Address: <%= "#{home.address.street}, #{home.address.suburb}" %></h4>
+    </div>
+    <hr>
+  </div>
+<% end %>
+
+<%# query being made here is = N + 1 %>
+
+<%# eager loading = 2 queries %>
